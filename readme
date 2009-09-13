@@ -1,0 +1,22 @@
+Design goals
+============
+* Make testing as easy & fun as JS itself
+* Write tests in pure JS, no DSL parsing
+* Make it very easy to figure see what failed
+* Run tests in async or sync mode
+* Use human language for BDD style testing with spec() and define()
+
+Todo
+====
+* Async steps
+* Recursive search for _test.js files in path
+* Handle file not found
+* Add command line option parser
+* Implement --quite flag
+* Implement --async flag
+* Support async tests with regular cli output formatter
+* Support for "regular" mjsunit tests
+* Add cli_color output formatter
+* Support for ~/.ooticonfig configuration file
+* Track runtime of each individual step, test case, test and group
+* Buffer stdio (maybe more confusing than helpful?)

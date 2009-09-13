@@ -1,0 +1,15 @@
+#!/usr/local/bin/node
+var ooti = require('../lib/ooti.js');
+
+var test = ooti.load(node.path.join(node.cwd(), ARGV[2]));
+var formatter = ooti.formatter('cli');
+
+formatter.observe(test);
+test.addListener('test.end', function(stats) {
+	var exitCode = (stats.fail || stats.wip)
+		? 1
+		: 0;
+	node.exit(exitCode);
+});
+
+test.run();
