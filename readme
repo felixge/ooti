@@ -8,7 +8,6 @@ Design goals
 
 Todo
 ====
-* Recursive search for _test.js files in path
 * Handle file not found
 * Add command line option parser
 * Implement --quite flag
@@ -16,6 +15,7 @@ Todo
 * Support async tests with regular cli output formatter
 * Support for "regular" mjsunit tests
 * Add cli_color output formatter
+* Load define() statements from different files
 * Support for ~/.ooticonfig configuration file
 * Track runtime of each individual step, test case, test and group
 * Buffer stdio (maybe more confusing than helpful?)
