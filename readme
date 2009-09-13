@@ -2,7 +2,7 @@ Design goals
 ============
 * Make testing as easy & fun as JS itself
 * Write tests in pure JS, no DSL parsing
-* Make it very easy to figure see what failed
+* Make it very easy to figure out what failed
 * Run tests in async or sync mode
 * Use human language for BDD style testing with spec() and define()
 
