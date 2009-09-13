@@ -8,7 +8,6 @@ Design goals
 
 Todo
 ====
-* Async steps
 * Recursive search for _test.js files in path
 * Handle file not found
 * Add command line option parser
