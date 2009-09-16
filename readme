@@ -15,6 +15,7 @@ Todo
 * Support async tests with regular cli output formatter
 * Support for "regular" mjsunit tests
 * Add cli_color output formatter
+* Add support for jslint
 * Load define() statements from different files
 * Support for ~/.ooticonfig configuration file
 * Track runtime of each individual step, test case, test and group

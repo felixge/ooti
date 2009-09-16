@@ -1,8 +1,26 @@
 #!/usr/local/bin/node
-var ooti = require('../lib/ooti.js');
+var optparse = require('../dep/optparse-js/src/optparse.js');
 
-var group = ooti.load(node.path.join(node.cwd(), ARGV[2]));
-var formatter = ooti.formatter('cli');
+var SWITCHES = [
+    ['-q', '--quite', 'Only report failed steps'],
+];
+
+var parser = new optparse.OptionParser(SWITCHES);
+
+var path, formatterOptions = {};
+parser.on(2, function(value) {
+	path = value;
+});
+
+parser.on('quite', function() {
+	formatterOptions.quite = true;
+});
+
+parser.parse(ARGV);
+
+var ooti = require('../lib/ooti.js');
+var group = ooti.load(node.path.join(node.cwd(), path));
+var formatter = ooti.formatter('cli', formatterOptions);
 
 formatter.observe(group);
 group.addListener('group.end', function(stats) {

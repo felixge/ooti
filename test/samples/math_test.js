@@ -13,11 +13,15 @@ spec([
 	'I expect the result to be 9'
 ]);
 
-define(/When I multiply (\d+) \* (\d+)/, function(a, b) {
-	this.world.a = a;
-	this.world.b = b;
+spec([
+	'When I do 1 + 177',
+	'I expect the result to be 178'
+]);
+
+define(/When I (?:\w+) (\d+) (\*|\+) (\d+)/, function(a, op, b) {
+	this.result = eval(a+op+b);
 });
 
 define(/I expect the result to be (\d+)/, function(c) {
-	this.assertEquals(c, this.world.a * this.world.b);
+	this.assertEquals(c, this.result);
 });
