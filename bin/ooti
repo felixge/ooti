@@ -1,4 +1,5 @@
 #!/usr/local/bin/node
+node.mixin(require('/sys.js'));
 var optparse = require('../dep/optparse-js/src/optparse.js');
 
 var SWITCHES = [
@@ -27,7 +28,7 @@ group.addListener('group.end', function(stats) {
 	var exitCode = (stats.fail || stats.wip)
 		? 1
 		: 0;
-	node.exit(exitCode);
+	process.exit(exitCode);
 });
 
 group.run();
