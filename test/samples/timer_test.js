@@ -3,11 +3,11 @@ spec('Verify setTimeout', [
 	'I expect it to fire within 100ms of that',
 ]);
 
-define(/When I set a timer to (\d+)ms/, function(timeout) {
-	this.expect(1);
+define(/When I set a timer to (\d+)ms/, function(test, timeout) {
+	test.expect(1);
 
-	this.world.start = (+new Date());
-	this.world.timeout = timeout;
+	test.world.start = (+new Date());
+	test.world.timeout = timeout;
 
 	var self = this;
 	setTimeout(function() {
@@ -15,7 +15,7 @@ define(/When I set a timer to (\d+)ms/, function(timeout) {
 	}, timeout);
 });
 
-define(/I expect it to fire within (\d+)ms of that/, function(tolerance) {
-	var duration = ((+new Date()) - this.world.start);
-	this.assertWithin(this.world.timeout, duration, tolerance);
+define(/I expect it to fire within (\d+)ms of that/, function(test, tolerance) {
+	var duration = ((+new Date()) - test.world.start);
+	test.assertWithin(test.world.timeout, duration, tolerance);
 });

@@ -15,16 +15,16 @@ spec([
 ]);
 
 
-define(/^(\w+)\(([^)]+)\) should pass/, function(fn, val) {
-	this.assertTrue(fn in this);
+define(/^(\w+)\(([^)]+)\) should pass/, function(test, fn, val) {
+	test.assertTrue(fn in this);
 
 	var val = JSON.parse('['+val+']');
-	this[fn].apply(this, val);
+	test[fn].apply(this, val);
 });
 
-define(/^(\w+)\(([^)]+)\) should fail/, function(fn, val) {
+define(/^(\w+)\(([^)]+)\) should fail/, function(test, fn, val) {
 	var val = JSON.parse('['+val+']'), self = this;
-	this.assertThrows(function() {
+	test.assertThrows(function() {
 		self[fn].apply(self, val);
 	});
 });

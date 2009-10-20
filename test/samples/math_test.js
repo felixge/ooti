@@ -18,10 +18,10 @@ spec([
 	'I expect the result to be 178'
 ]);
 
-define(/When I (?:\w+) (\d+) (\*|\+) (\d+)/, function(a, op, b) {
-	this.result = eval(a+op+b);
+define(/When I (?:\w+) (\d+) (\*|\+) (\d+)/, function(test, a, op, b) {
+	test.world.result = eval(a+op+b);
 });
 
-define(/I expect the result to be (\d+)/, function(c) {
-	this.assertEquals(c, this.result);
+define(/I expect the result to be (\d+)/, function(test, c) {
+	test.assertEquals(c, test.world.result);
 });
